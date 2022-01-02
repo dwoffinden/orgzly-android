@@ -26,6 +26,7 @@ import com.orgzly.android.ui.repo.directory.DirectoryRepoActivity
 import com.orgzly.android.ui.repo.dropbox.DropboxRepoActivity
 import com.orgzly.android.ui.repo.git.GitRepoActivity
 import com.orgzly.android.ui.repo.webdav.WebdavRepoActivity
+import com.orgzly.android.util.AppPermissions
 import com.orgzly.databinding.ActivityReposBinding
 import javax.inject.Inject
 
@@ -220,7 +221,7 @@ class ReposActivity : CommonActivity(), AdapterView.OnItemClickListener, Activit
             }
 
             R.id.repos_options_menu_item_new_git -> {
-                if (ContextCompat.checkSelfPermission(this, READ_WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                if (AppPermissions.isGranted(applicationContext, AppPermissions.Usage.LOCAL_REPO)) {
                     GitRepoActivity.start(this)
                 } else {
                     // TODO: Show explanation why possibly, if ActivityCompat.shouldShowRequestPermissionRationale() says so?
