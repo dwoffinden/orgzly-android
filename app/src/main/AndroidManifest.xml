@@ -12,10 +12,8 @@
     <!-- Initially added for checking available connections (for sync). -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />
+    <!-- Required for: exporting files (Downloads), creating temporary files -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <!-- For BroadcastReceiver below -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
